@@ -74,12 +74,12 @@ function geraID(){
 </head>
 <body>
 
-	<form action="realizaAtendimento.php?e=1" method="post">
+	<form action="realizaAtendimento.php?e=" method="post">
 		<center>
 			<label>
-				<h5>Hora de Entrada: </h5>
-				<input type="text" class="input-mini" type="text" name="horaE" value="<?php echo "$hora";?>" style="text-align: center;"> : 
-				<input type="text" class="input-mini" name="minutoE" value="<?php echo "$min";?>" style="text-align: center;">
+				<h5>Hora de Saída: </h5>
+				<input type="text" class="input-mini" type="text" name="horaS" value="<?php echo "$hora";?>" style="text-align: center;"> : 
+				<input type="text" class="input-mini" name="minutoS" value="<?php echo "$min";?>" style="text-align: center;">
 			</label>
 			<label>
 				<h5>Placa Veiculo: </h5>
@@ -96,5 +96,4 @@ function geraID(){
 				<button class="btn btn-default" type="submit">Confirmar</button>   
 			</label>
 			<br>
-			<a href='AdicionaVeiculo.php?id=<?php $id = $_GET['id']; echo "$id"; ?>'>Cadastrar Novo Veículo</a>
 		</form></center>

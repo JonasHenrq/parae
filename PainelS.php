@@ -13,8 +13,8 @@ if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
 	header("Location: Login.php");
 	exit;
 } else {
-	if (!$_SESSION["setor"]) {
-		header("Location: IniciaAtendimento.php?ia=");
+	if ($_SESSION["tuser"]==1) {
+		header("Location: Painel.php");
 	}
 	$NomeUser=$_SESSION["user"];
 }
@@ -28,7 +28,7 @@ if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
     $consultaID = mysql_query("SELECT id FROM cliente WHERE cpf = '$cpf' or codigo = '$codigo' and status = '1'") or die(mysql_error());
     $IDvector = mysql_fetch_row($consultaID);
     $id = $IDvector[0];
-    header("Location: testehora.php?id=$id");
+    header("Location: SaidaVeiculo.php?id=$id");
   }
 
 ?>
@@ -41,8 +41,8 @@ if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
   <link rel="shortcut icon" href="css/imagens/parae.ico" type="image/x-icon" />
 	<center><img src="css/imagens/paraefinal.png" class="img-rounded" width="200" height="205" onclick="location.href='paginicial.php'"></center>
 	<div align="right"> Olá, <?php echo $NomeUser ?> | <a href="logout.php">Sair</a></div>
-	<center><font color="green"><h3>ENTRADA VEÍCULO</h3></center></font>
-		<br>
+	<center><font color="red"><h3>SAÍDA VEÍCULO</h3></center></font>
+  <BR>
 	<script language="Javascript">
       function formatar(mascara, documento){
         var i = documento.value.length;
@@ -58,7 +58,7 @@ if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
 </head>
 <body>
 
-<form action="Painel.php?passo=2" method="POST">
+<form action="PainelS.php?passo=2" method="POST">
   <center>
   <label>
  <h5>Iniciar pelo CPF</h5>
@@ -71,6 +71,6 @@ if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
   <label>
   <button class="btn btn-default" type="submit">Iniciar</button>   
   </label>
-  <br><br>
-  <button class="btn btn-default" type="button" onclick="location.href='PainelS.php?passo='">Saída Veiculo</button></center>
+  <br><BR>
+  <center><button class="btn btn-default" type="button" onclick="location.href='Painel.php?passo='">Entrada Veículo</button>
 </form></center>

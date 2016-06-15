@@ -23,6 +23,6 @@ if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
 	<br><br><br>
 	<center><img src="css/imagens/sucesso.jpg" class="img-rounded" width="100" height="105"></center>
 	<center><h2>Operação realizada com Sucesso!</h2></center>
-	<center><button class="btn btn-default" type="button" onclick="location.href='paginicial'">Voltar</button></center>
+	<center><button class="btn btn-default" type="button" onclick="location.href='paginicial.php'">Voltar</button></center>
 </body>	
 </head>

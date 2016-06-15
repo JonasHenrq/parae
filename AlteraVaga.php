@@ -38,8 +38,8 @@ if ($id>0) {
 	$id = $_POST['id'];
 	$setor = $_POST['setor'];
 	$vcarro= $_POST['vcarro'];
-	$vmoto= $_POST['vmoto'];
-	$up = "UPDATE vaga SET setor = '$setor', vcarro = '$vcarro' WHERE id ='$id'";
+	$valor= $_POST['valor'];
+	$up = "UPDATE vaga SET setor = '$setor', vcarro = '$vcarro', valor = '$valor' WHERE id ='$id'";
 	mysql_query($up) or die(mysql_error());
 	header("Location: sucesso.php");
 	exit;
@@ -58,6 +58,13 @@ function obtemSetor(){
 function obtemVcarro(){
 	$id=$_GET['id'];
 	$consulta = mysql_query("SELECT vcarro FROM vaga WHERE id = '$id'") or die(mysql_error());
+    $dado= mysql_fetch_row($consulta);
+    echo "$dado[0]";
+}
+
+function obtemValor(){
+	$id=$_GET['id'];
+	$consulta = mysql_query("SELECT valor FROM vaga WHERE id = '$id'") or die(mysql_error());
     $dado= mysql_fetch_row($consulta);
     echo "$dado[0]";
 }
@@ -115,6 +122,10 @@ function geraID(){
 			<h5>Número de vagas disponível:</h5>
 			<input type="text" class="form-control" value="<?php obtemVcarro(); ?>" name="vcarro">
 		</label>
+		<label>
+            <h5>Valor da hora do aluguel de UMA vaga:</h5>
+            <input type="text" class="form-control" value="<?php obtemValor(); ?>" name="valor">
+        </label>
 		<label>
 			<br>
 			<?php geraID(); ?>

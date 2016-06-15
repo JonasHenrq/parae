@@ -63,6 +63,10 @@ if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
             <input type="text" class="form-control" name="vcarro">
         </label>
         <label>
+            <h5>Valor da hora do aluguel de UMA vaga:</h5>
+            <input type="text" class="form-control" name="valor">
+        </label>
+        <label>
             <br>
             <button class="btn btn-default" type="button" onclick="location.href='javascript:window.history.go(-1)'">Voltar</button>
             &nbsp &nbsp

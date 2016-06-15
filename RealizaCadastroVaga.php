@@ -16,8 +16,9 @@
 
 	$setor = $_POST['setor'];
 	$vcarro= $_POST['vcarro'];
-	$sql = mysql_query("INSERT INTO vaga (setor, vcarro)
-		VALUES ('$setor', '$vcarro')") or die (mysql_error());
+	$valor = $_POST['valor'];
+	$sql = mysql_query("INSERT INTO vaga (setor, vcarro, valor)
+		VALUES ('$setor', '$vcarro', '$valor')") or die (mysql_error());
 	header("Location: sucesso.php");
 	mysql_close();
 
