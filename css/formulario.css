@@ -1,0 +1,109 @@
+@charset "utf-8";
+
+#base {
+	max-width:960px;
+	height: auto;
+	width: 1000px;
+	align-self:center;
+}
+#cabecalho html body {
+	max-width:960px;
+	height: 235px;
+	width: auto;
+}
+#logo html body{
+	max-width:960px;
+	height: 150px;
+	width: auto;
+	
+}
+#cabecalho {
+	max-width:960px;
+	height: 200px;
+	width: auto;
+}
+#logo {
+	max-width:960px;
+	height: 116px;
+	width: auto;
+	margin-top: 30px;
+	margin-left: 498.5px;
+}
+#linha {
+	height: 2px;
+	width: auto;
+	margin-left: 51px;
+	margin-top:3px;
+	}
+#corpo{
+	max-width:960px;
+	height: 600px;
+	width: auto;
+}#form {
+	height: 550px;
+	width: auto;
+	margin-top: 10px;
+	margin-left: 350px;
+	text-align: justify;
+	}
+
+#titulo2 {
+	font-family: Segoe, Segoe UI, DejaVu Sans, Trebuchet MS, Verdana, sans-serif;
+	font-size: 24px;
+	color: #f89406;
+	height: 30px;
+	width: auto;
+	text-align: center;
+	font-weight: bolder;
+	}
+
+#titulo {
+	font-family: Segoe, Segoe UI, DejaVu Sans, Trebuchet MS, Verdana, sans-serif;
+	font-size: 24px;
+	color: #000000;
+	height: 30px;
+	width: auto;
+	text-align: center;
+	font-weight: bolder;
+	}
+
+#form2 {
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+	font-size: 20px;
+	font-weight: lighter;
+	height: auto;
+	width: 300px;
+	margin-left:150px;
+	text-align: center;
+	}
+
+#botoes {
+	height: 50px;
+	width: auto;
+	padding-top:20px;
+	
+}
+
+#form #botoes #cadastrar {
+	background-image:url(butaum.fw.png);
+	margin-left:100px;
+	width:124px;
+	height:27px;
+	
+}
+#form #botoes #voltar {
+	background-image:url(butaum.fw.png);
+	margin-left:120px;
+	width:124px;
+	height:27px;
+}
+#sair {
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+	font-size: 14px;
+	font-weight: lighter;
+	height: 20px;
+	width: 260px;
+	margin-left: 950px;
+	text-align:right;
+}
+

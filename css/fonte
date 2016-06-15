@@ -1,0 +1,174 @@
+*{
+    margin:0;
+    padding:0;
+    outline: none;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+body{
+    background-size:cover;
+    background-repeat:no-repeat;
+    font: 300 16px Calibri;
+    height: 600px;
+}
+
+.acomodar input{
+padding: 4px;
+}
+
+#input {
+padding 4px;
+}
+
+#login{
+    width: 300px;
+    margin: 0 auto;
+    position: relative;
+    top: 200px;
+    padding: 15px;;
+}
+#cadastroUsuario{
+    position: fixed;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    -webkit-border-bottom-right-radius: 8px;
+    -webkit-border-bottom-left-radius: 8px;
+    -moz-border-radius-bottomleft: 8px;
+    -moz-border-radius-bottomright:8px;
+    height: 30px;
+    width: 150px;
+    font:400 18px Times;
+    background: #57ff2e;
+    color: #000;;
+}
+.logo{
+    width: 200px;
+    height: 78px;
+    margin: auto;
+    padding: 7px;
+}
+.logo2{
+    position: static;
+    width: 200px;
+    height: 78px;
+    margin: auto;
+    padding: 7px;
+}
+.formx label{
+    display: block;
+    padding-top: 5px 0 0 0;
+}
+.acomodar{
+    margin: 0 auto;
+    width: 250px;
+}
+
+.txt{
+    border: none;
+    height: 40px;
+    width: 250px;
+    border: thin solid rgba(49, 49, 49, 0.58);
+}
+.txt:focus{
+    border: thin solid #0099ff;
+    box-shadow: 0 2px 10px #09f;
+    -webkit-box-shadow: 0 2px 10px #09f;
+    -moz-box-shadow: 0 2px 10px #09f;
+}
+.sb{
+    display: block;
+    border:none;
+    width: 70%;
+    height: 40px;
+    margin-top: 10px;
+    cursor: pointer;
+    font: 400 18px Times;
+    color:#1918ff;
+}
+.sb:hover{
+    background: #57ff2e;
+    color: #1918ff;
+}
+.sb.bradius{
+    background: #000000;
+    color: #f0f8ff;
+    height: 40px;
+    width: 170px;
+}
+.sb.bradius2{
+    background: #000000;
+    color: #f0f8ff;
+    height: 40px;
+    width: 170px;
+    float: left;
+    margin: 220px 10px 0px 0px;
+    position: relative;
+    left: 25%;
+}
+.sb.bradius3{
+    background: #000000;
+    color: #f0f8ff;
+    height: 40px;
+    width: 170px;
+    float: left;
+    margin: 270px 10px 0px -378px;
+    position: relative;
+    border-radius: 6px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+.sb.bradius4{
+    background: #000000;
+    color: #f0f8ff;
+    height: 40px;
+    width: 170px;
+    float: left;
+    margin: 270px 210px 0px -200px;
+    position: relative;
+    border-radius: 6px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+.sb.bradius5{
+    background: #000000;
+    color: #f0f8ff;
+    height: 40px;
+    width: 170px;
+    float: left;
+    margin: 5px -510px 0px 520px;
+    position: relative;
+    border-radius: 6px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+
+/*Classes de herança*/
+.bradius{
+    font: 400 20px;
+    color: rgba(0, 0, 0, 1);
+    border-radius: 6px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+.bradius2{
+    font: 400 20px;
+    color: rgba(0, 0, 0, 1);
+    border-radius: 6px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    margin: 270px 0px 0px -378px;
+}
+.fleft{
+    float.left;
+}
+.fright{
+    float.right;
+}
+/*Multiplos Estilos*/
+.txt,.txt:focus,.sb,.sb:hover{
+    transition: all 0.5s linear;
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+}
