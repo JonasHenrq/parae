@@ -35,7 +35,7 @@ if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
 <body background="css/imagens/vaga.png.jpg">
     <div id="pagini" class="form bradius">
         <div class="message"></div>
-        <div class="logo2"><a href="<?php echo $home;?>" title="<?php echo $title;?>"><img src="css/imagens/parae.png" alt="<?php echo $title;?>" title="<?php echo $title;?>" width="200" height="78"/> </a> </div>
+        <center><img src="css/imagens/paraefinal.png" class="img-rounded" width="200" height="78" onclick="location.href='paginicial.php'"></center>
         <div id="sair">Olá , <?php echo $NomeUser ?> | <a href="logout.php">Sair</a></div>
         <input type="submit" class="sb bradius2" value="Cadastrar Usuário" onclick="location.href='FormularioCadastroUsuario.php'" />
         <input type="submit" class="sb bradius2" value="Cadastrar Cliente" onclick="location.href='FormularioCadastroCliente.php'"/>

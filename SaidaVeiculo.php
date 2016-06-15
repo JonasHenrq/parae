@@ -93,7 +93,7 @@ function geraID(){
 			</label>
 			<label>
 				<br>
-				<button class="btn btn-default" type="submit">Confirmar</button>   
+				<button class="btn btn-default" type="submit" onclick="location.href='Pagamento.php'">Confirmar</button>   
 			</label>
 			<br>
 		</form></center>
