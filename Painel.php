@@ -30,7 +30,7 @@ if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
 <body background="css/imagens/vaga.png.jpg">
     <div id="pagini" class="form bradius">
         <div class="message"></div>
-        <div class="logo2"><a title="<?php echo $title;?>"><img src="css/imagens/parae.png" alt="<?php echo $title;?>" title="<?php echo $title;?>" width="200" height="78"/> </a> </div>
+        <div class="logo2"><a title="<?php echo $title;?>"><img src="css/imagens/parae.png" onclick="location.href='paginicial.php'" alt="<?php echo $title;?>" title="<?php echo $title;?>" width="200" height="78"/> </a> </div>
         <div id="sair">Olá , <?php echo $NomeUser ?> | <a href="logout.php">Sair</a></div><br>
         <input type="submit" class="sb bradius2" value="Entrada Veículo" onclick="location.href='PainelE.php?passo='" />
         <input type="submit" class="sb bradius2" value="Saída Veiculo" onclick="location.href='PainelS.php?passo='"/>

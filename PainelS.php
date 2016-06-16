@@ -10,14 +10,15 @@ mysql_select_db($banco) or die (mysql_error());
 <?php 
 session_start();
 if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
-	header("Location: Login.php");
-	exit;
-} else {
-  if (!$_SESSION["setor"]) {
-    header("Location: IniciaAtendimento.php?ia=");
-  }
+  header("Location: Login.php");
+  exit;
 }
-	$NomeUser=$_SESSION["user"];
+if (!$_SESSION["setor"]) {
+    header("Location: IniciaAtendimento.php?ia=");
+    exit;
+  }
+  $NomeUser=$_SESSION["user"];
+  $setor = $_SESSION["setor"];
 ?>
 
 <?php
@@ -28,7 +29,10 @@ if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
     $consultaID = mysql_query("SELECT id FROM cliente WHERE cpf = '$cpf' or codigo = '$codigo' and status = '1'") or die(mysql_error());
     $IDvector = mysql_fetch_row($consultaID);
     $id = $IDvector[0];
-    if(!$id){header("Location: erro500.php?op=2");}
+    $consultaSessao = mysql_query("SELECT id FROM atendimento WHERE cliente = '$id' and status = 1") or die(mysql_error());
+    $Sessaovector = mysql_fetch_row($consultaSessao);
+    $sessao = $Sessaovector[0];
+    if(!$id||!$sessao){header("Location: erro500.php?op=2");}
     else{header("Location: SaidaVeiculo.php?id=$id");}
   }
 

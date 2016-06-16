@@ -46,7 +46,7 @@ if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
     <input type="submit" class="sb bradius4" value="Consultar Cliente" onclick="location.href='FormularioBuscaCliente.php'"/>
     <input type="submit" class="sb bradius4" value="Consultar Vaga" onclick="location.href='ConsultaVaga.php'"/>
     <input type="submit" class="sb bradius4" value="Consultar Convênio" onclick="location.href='ConsultaConvenio.php'"/><br>
-    <input type="submit" class="sb bradius5" value="Atendimento" value="Cadastrar Convênio" onclick="location.href='PainelE.php?passo='"/>
+    <input type="submit" class="sb bradius5" value="Atendimento" value="Cadastrar Convênio" onclick="location.href='Painel.php'"/>
     <input type="submit" class="sb bradius5" value="Relatório"/>
 
 </body>

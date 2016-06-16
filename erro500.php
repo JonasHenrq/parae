@@ -3,12 +3,8 @@ session_start();
 if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
 	header("Location: Login.php");
 	exit;
-} else {
-	if ($_SESSION["tuser"]==1) {
-		header("Location: Painel.php");
-	}
-	$NomeUser=$_SESSION["user"];
 }
+	$NomeUser=$_SESSION["user"];
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +25,9 @@ if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
 	}
 	if($op==2){
 		echo "CLIENTE NÃO CADASTRADO OU SEÇÃO NÃO INICIADA";
+	}
+	if($op==5){
+		echo "NÃO HÁ VAGAS DISPONIVEIS";
 	}
 	?></h2></center>
 	<center><button class="btn btn-default" type="button" onclick="location.href='javascript:window.history.go(-1)'">Voltar</button></center>
