@@ -49,14 +49,14 @@ if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
             <button class="btn-default" onclick="location.href='FormularioCadastroConvenio.php'"><td>Cadastrar Convênio</td></button>
         </tr></center>
     <center><tr class="success">
-            <button class="btn-default" onclick="location.href='ConsultaUsuario.php'"><td>Consultar Usuário</td></button>
-            <button class="btn-default" onclick="location.href='ConsultaCliente.php'"><td>Consultar Cliente</td></button>
+            <button class="btn-default" onclick="location.href='FormularioBuscaUsuario.php'"><td>Consultar Usuário</td></button>
+            <button class="btn-default" onclick="location.href='FormularioBuscaCliente.php'"><td>Consultar Cliente</td></button>
             <button class="btn-default" onclick="location.href='ConsultaVaga.php'"><td>Consultar Vaga</td></button>
             <button class="btn-default" onclick="location.href='ConsultaConvenio.php'"><td>Consultar Convênio</td></button>
         </tr></center>
     <center><tr class="success">
             <button class="btn-default" onclick="location.href='Painel.php'"><td>Atendimento</td></button>
-            <button class="btn-default" onclick="location.href='Relatorio.php'"><td>Relatórios</td></button>
+            <button class="btn-default" onclick="location.href='FormularioRelatorio.php'"><td>Relatórios</td></button>
         </tr></center>
 </div>
 </body>

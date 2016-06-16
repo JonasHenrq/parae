@@ -124,14 +124,14 @@ function geraDados2(){
 
     function drawStuff() {
       var data = new google.visualization.arrayToDataTable([
-        ['', 'Numero de atendimentos', 'Valor Total dos atendimentos'],
+        ['', 'Número de atendimentos', 'Valor Total dos atendimentos'],
         <?php geraDados2(); ?>
         ]);
 
       var options = {
         width: 900,
         chart: {
-          title: 'NUMERO DE ATENDIMENTO E VALOR ARRECADADO POR CONVÊNIO',
+          title: 'NÚMERO DE ATENDIMENTO E VALOR ARRECADADO POR CONVÊNIO',
           subtitle: ''
         },
         series: {
@@ -140,7 +140,7 @@ function geraDados2(){
           },
           axes: {
             y: {
-              distance: {label: 'Numero de atendimentos'}, // Left y-axis.
+              distance: {label: 'Número de atendimentos'}, // Left y-axis.
               brightness: {side: 'right', label: 'Valor em R$'} // Right y-axis.
             }
           }
@@ -155,7 +155,7 @@ function geraDados2(){
     <center><div id="dual_y_div" style="width: 900px; height: 500px;"></div></center>
     <br><br>
     <center><h3>DETALHAMENTO</h3></center>
-    <center><h4>Periodo: <?php echo date('d/m/Y', strtotime($diaI)); ?> até <?php echo date('d/m/Y', strtotime($diaF)); ?></h4></center><br>
+    <center><h4>Período: <?php echo date('d/m/Y', strtotime($diaI)); ?> até <?php echo date('d/m/Y', strtotime($diaF)); ?></h4></center><br>
     <?php geraDados(); ?>
     <br>
     <?php geraDados3(); ?>
