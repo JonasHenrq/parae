@@ -18,18 +18,24 @@ $setor=$_SESSION['setor'];
 
 <?php
 $entrada= $_GET['e']; 
-if($entrada){
-$cliente = $_POST['id'];
-$horaE = $_POST['horaE'];
-$minutoE = $_POST['minutoE'];
-$veiculo = $_POST['veiculo'];
-$consultaIDconv = mysql_query("SELECT convenio FROM cliente WHERE id = '$cliente'") or die(mysql_error());
-$IDvector = mysql_fetch_row($consultaIDconv);
-$convenio = $IDvector[0];
-$sql = mysql_query("INSERT INTO atendimento (cliente, conv, veiculo, horaE, minutoE)
-VALUES ('$cliente', '$convenio', '$veiculo', '$horaE', '$minutoE')");
-header("Location: sucesso.php");
-}else{
+if($entrada==1){
+	$cliente = $_POST['id'];
+	$horaE = $_POST['horaE'];
+	$minutoE = $_POST['minutoE'];
+	$veiculo = $_POST['veiculo'];
+	$consultaIDconv = mysql_query("SELECT convenio FROM cliente WHERE id = '$cliente'") or die(mysql_error());
+	$IDvector = mysql_fetch_row($consultaIDconv);
+	$convenio = $IDvector[0];
+	$sql = mysql_query("INSERT INTO atendimento (cliente, conv, veiculo, horaE, minutoE)
+		VALUES ('$cliente', '$convenio', '$veiculo', '$horaE', '$minutoE')");
+	$consultaVaga = mysql_query("SELECT vcarro FROM vaga WHERE id = '$setor'") or die(mysql_error());
+	$Valorvector = mysql_fetch_row($consultaVaga);
+	$nvaga = $Valorvector[0];
+	$nvaga = ($nvaga-1);
+	mysql_query("UPDATE vaga SET vcarro = '$nvaga' WHERE id ='$setor'");
+	header("Location: sucesso.php");
+}
+if ($entrada==2) {
 	$cliente = $_POST['id'];
 	$horaS = $_POST['horaS'];
 	$minutoS = $_POST['minutoS'];
@@ -54,8 +60,14 @@ header("Location: sucesso.php");
 			$desconto = ($total*($desconto/100));
 			$valor = ($total - $desconto);
 			mysql_query("UPDATE atendimento SET status = 0, horaS = '$horaS', minutoS = '$minutoS',total = '$total', valor = '$valor' WHERE id ='$id'");
+			$consultaVaga = mysql_query("SELECT vcarro FROM vaga WHERE id = '$setor'") or die(mysql_error());
+			$Valorvector = mysql_fetch_row($consultaVaga);
+			$nvaga = $Valorvector[0];
+			$nvaga = ($nvaga+1);
+			mysql_query("UPDATE vaga SET vcarro = '$nvaga' WHERE id ='$setor'");
+			header("Location: Pagamento.php?id=$id");
 		}
 	}
-
 }
+
 ?>

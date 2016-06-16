@@ -12,12 +12,8 @@ session_start();
 if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
 	header("Location: Login.php");
 	exit;
-} else {
-	if ($_SESSION["tuser"]==1) {
-		header("Location: Painel.php");
-	}
-	$NomeUser=$_SESSION["user"];
 }
+	$NomeUser=$_SESSION["user"];
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +23,7 @@ if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
 	<title>Busca Usuário</title>
   <link rel="shortcut icon" href="css/imagens/parae.ico" type="image/x-icon" />
 	<center><img src="css/imagens/paraefinal.png" class="img-rounded" width="200" height="205" onclick="location.href='paginicial.php'"></center>
-	<div align="right"> Olá, <?php echo $NomeUser ?> | <a href="logout.php">Sair</a></div>
+     <div align="right"> Olá, <?php echo $NomeUser ?> | <a href="paginicial.php"><i class="icon-home"></i></a> | <a href="logout.php">Sair</a></div>
 	<center><h3>Buscar Cliente</h3></center>
 	<br><br>
 	<script language="Javascript">

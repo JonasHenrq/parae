@@ -13,11 +13,11 @@ if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
 	header("Location: Login.php");
 	exit;
 } else {
-	if ($_SESSION["tuser"]==1) {
-		header("Location: Painel.php");
-	}
-	$NomeUser=$_SESSION["user"];
+  if (!$_SESSION["setor"]) {
+    header("Location: IniciaAtendimento.php?ia=");
+  }
 }
+	$NomeUser=$_SESSION["user"];
 ?>
 
 <?php
@@ -28,7 +28,8 @@ if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
     $consultaID = mysql_query("SELECT id FROM cliente WHERE cpf = '$cpf' or codigo = '$codigo' and status = '1'") or die(mysql_error());
     $IDvector = mysql_fetch_row($consultaID);
     $id = $IDvector[0];
-    header("Location: SaidaVeiculo.php?id=$id");
+    if(!$id){header("Location: erro500.php?op=2");}
+    else{header("Location: SaidaVeiculo.php?id=$id");}
   }
 
 ?>
@@ -40,7 +41,7 @@ if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
 	<title>Atendimento</title>
   <link rel="shortcut icon" href="css/imagens/parae.ico" type="image/x-icon" />
 	<center><img src="css/imagens/paraefinal.png" class="img-rounded" width="200" height="205" onclick="location.href='paginicial.php'"></center>
-	<div align="right"> Olá, <?php echo $NomeUser ?> | <a href="logout.php">Sair</a></div>
+     <div align="right"> Olá, <?php echo $NomeUser ?> | <a href="paginicial.php"><i class="icon-home"></i></a> | <a href="logout.php">Sair</a></div>
 	<center><font color="red"><h3>SAÍDA VEÍCULO</h3></center></font>
   <BR>
 	<script language="Javascript">
@@ -72,5 +73,5 @@ if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
   <button class="btn btn-default" type="submit">Iniciar</button>   
   </label>
   <br><BR>
-  <center><button class="btn btn-default" type="button" onclick="location.href='Painel.php?passo='">Entrada Veículo</button>
+  <center><button class="btn btn-default" type="button" onclick="location.href='PainelE.php?passo='">Entrada Veículo</button>
 </form></center>

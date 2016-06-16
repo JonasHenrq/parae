@@ -27,7 +27,7 @@ if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
 	<title>Consulta Convenio</title>
 	<link rel="shortcut icon" href="css/imagens/parae.ico" type="image/x-icon" />
 	<center><img src="css/imagens/paraefinal.png" class="img-rounded" width="200" height="205" onclick="location.href='paginicial.php'"></center>
-	<div align="right"> Olá, <?php echo $NomeUser ?> | <a href="logout.php">Sair</a></div>
+     <div align="right"> Olá, <?php echo $NomeUser ?> | <a href="paginicial.php"><i class="icon-home"></i></a> | <a href="logout.php">Sair</a></div>
 	<center><h3>Setores Cadastrados</h3></center>
 	<br><br>
 </head>
@@ -52,6 +52,7 @@ if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
 				$setor = $linha['setor'];
 				$vcarro = $linha['vcarro'];
 				$valor = $linha['valor'];
+				$valor = 'R$' . number_format($valor, 2, ',', '.');
 				echo '<tr>';
 				echo '<td>' .'<center>'. $setor. '</center>'.'</td>';
 				echo '<td>' .'<center>'. $vcarro. '</center>'.'</td>';

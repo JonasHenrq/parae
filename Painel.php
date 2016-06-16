@@ -1,76 +1,41 @@
+
 <?php
 $host = "localhost";
 $user = "root";
 $pass = "";
 $banco = "user";
-$conexao = mysql_connect($host, $user, $pass);
+$conexao = mysql_connect($host, $user, $pass) or die (mysql_error());
 mysql_select_db($banco) or die (mysql_error());
 ?>
 
 <?php 
 session_start();
 if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
-	header("Location: Login.php");
-	exit;
-} else {
-	if (!$_SESSION["setor"]) {
-		header("Location: IniciaAtendimento.php?ia=");
-	}
-	$NomeUser=$_SESSION["user"];
+    header("Location: login.php");
+    exit;
 }
-?>
-
-<?php
-  $passo = $_GET['passo'];
-  if($passo){
-    $cpf = $_POST['cpf'];
-    $codigo = $_POST['codigo'];
-    $consultaID = mysql_query("SELECT id FROM cliente WHERE cpf = '$cpf' or codigo = '$codigo' and status = '1'") or die(mysql_error());
-    $IDvector = mysql_fetch_row($consultaID);
-    $id = $IDvector[0];
-    header("Location: testehora.php?id=$id");
-  }
+    $NomeUser=$_SESSION["user"];
 
 ?>
 
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC ".//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1//DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<title>Atendimento</title>
-  <link rel="shortcut icon" href="css/imagens/parae.ico" type="image/x-icon" />
-	<center><img src="css/imagens/paraefinal.png" class="img-rounded" width="200" height="205" onclick="location.href='paginicial.php'"></center>
-	<div align="right"> Olá, <?php echo $NomeUser ?> | <a href="logout.php">Sair</a></div>
-	<center><font color="green"><h3>ENTRADA VEÍCULO</h3></center></font>
-		<br>
-	<script language="Javascript">
-      function formatar(mascara, documento){
-        var i = documento.value.length;
-        var saida = mascara.substring(0,1);
-        var texto = mascara.substring(i)
-
-        if (texto.substring(0,1) != saida){
-          documento.value += texto.substring(0,1);
-        }
-      }
-    </script>   
-
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>PARAE - Redes de Estacionamento</title>
+    <link rel="shortcut icon" href="css/imagens/parae.ico" type="image/x-icon" />
+    <link href="css/formulario.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/fonte"/>
 </head>
-<body>
-
-<form action="Painel.php?passo=2" method="POST">
-  <center>
-  <label>
- <h5>Iniciar pelo CPF</h5>
-    <input type="text" class="form-control input-lg" name="cpf" placeholder="123.456.789-00" OnKeyPress="formatar('###.###.###-##', this)" maxlength="14">
-  </label>
-  <label>
-  <h5>Iniciar pelo Codigo</h5>
-    <input type="text" class="form-control input-lg" name="codigo" >
-  </label>
-  <label>
-  <button class="btn btn-default" type="submit">Iniciar</button>   
-  </label>
-  <br><br>
-  <button class="btn btn-default" type="button" onclick="location.href='PainelS.php?passo='">Saída Veiculo</button></center>
-</form></center>
+<body background="css/imagens/vaga.png.jpg">
+    <div id="pagini" class="form bradius">
+        <div class="message"></div>
+        <div class="logo2"><a title="<?php echo $title;?>"><img src="css/imagens/parae.png" alt="<?php echo $title;?>" title="<?php echo $title;?>" width="200" height="78"/> </a> </div>
+        <div id="sair">Olá , <?php echo $NomeUser ?> | <a href="logout.php">Sair</a></div><br>
+        <input type="submit" class="sb bradius2" value="Entrada Veículo" onclick="location.href='PainelE.php?passo='" />
+        <input type="submit" class="sb bradius2" value="Saída Veiculo" onclick="location.href='PainelS.php?passo='"/>
+        <input type="submit" class="sb bradius2" value="Cadastrar Cliente" onclick="location.href='FormularioCadastroCliente.php'"/>
+        <input type="submit" class="sb bradius2" value="Consultar Cliente" onclick="location.href='FormularioBuscaCliente.php'"/>
+    </div>
+</body>
+</html>

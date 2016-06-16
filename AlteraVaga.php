@@ -39,6 +39,18 @@ if ($id>0) {
 	$setor = $_POST['setor'];
 	$vcarro= $_POST['vcarro'];
 	$valor= $_POST['valor'];
+	function pv($pv_var){
+	//muda ponto para virgula ou vice-versa
+	//ex. x=pv("100.00"); o resultado será 100,00
+	//ex. x=pv("100,00"); o resultado será 100.00
+		$pv_tipo=',';
+		if ($pv_tipo == '.') {
+			return str_replace('.',',',$pv_var);
+		} else {
+			return str_replace(',','.',$pv_var);
+		}
+	}
+	$valor = pv($valor);
 	$up = "UPDATE vaga SET setor = '$setor', vcarro = '$vcarro', valor = '$valor' WHERE id ='$id'";
 	mysql_query($up) or die(mysql_error());
 	header("Location: sucesso.php");
@@ -58,15 +70,15 @@ function obtemSetor(){
 function obtemVcarro(){
 	$id=$_GET['id'];
 	$consulta = mysql_query("SELECT vcarro FROM vaga WHERE id = '$id'") or die(mysql_error());
-    $dado= mysql_fetch_row($consulta);
-    echo "$dado[0]";
+	$dado= mysql_fetch_row($consulta);
+	echo "$dado[0]";
 }
 
 function obtemValor(){
 	$id=$_GET['id'];
 	$consulta = mysql_query("SELECT valor FROM vaga WHERE id = '$id'") or die(mysql_error());
-    $dado= mysql_fetch_row($consulta);
-    echo "$dado[0]";
+	$dado= mysql_fetch_row($consulta);
+	echo "$dado[0]";
 }
 
 ?>
@@ -85,7 +97,7 @@ function geraID(){
 	<title>Cadastro de Vaga</title>
 	<link rel="shortcut icon" href="css/imagens/parae.ico" type="image/x-icon" />
 	<center><img src="css/imagens/paraefinal.png" class="img-rounded" width="200" height="205" onclick="location.href='paginicial.php'"></center>
-	<div align="right"> Olá, <?php echo $NomeUser ?> | <a href="logout.php">Sair</a></div>
+     <div align="right"> Olá, <?php echo $NomeUser ?> | <a href="paginicial.php"><i class="icon-home"></i></a> | <a href="logout.php">Sair</a></div>
 	<center><h3>CADASTRO DE VAGA</h3></center>
 	<br><br>
 	<script language="Javascript">
@@ -106,7 +118,6 @@ function geraID(){
 				document.form.vmoto.focus();
 				return false;
 			}
-		}
 
 	</script>
 
@@ -123,9 +134,9 @@ function geraID(){
 			<input type="text" class="form-control" value="<?php obtemVcarro(); ?>" name="vcarro">
 		</label>
 		<label>
-            <h5>Valor da hora do aluguel de UMA vaga:</h5>
-            <input type="text" class="form-control" value="<?php obtemValor(); ?>" name="valor">
-        </label>
+			<h5>Valor da hora do aluguel de UMA vaga:</h5>
+			<input type="text" class="form-control" value="<?php obtemValor(); ?>" name="valor" />
+		</label>
 		<label>
 			<br>
 			<?php geraID(); ?>
