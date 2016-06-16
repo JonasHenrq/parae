@@ -8,15 +8,15 @@ $conexao = mysql_connect($host, $user, $pass) or die (mysql_error());
 mysql_select_db($banco) or die (mysql_error());
 ?>
 
-<?php 
+<?php
 session_start();
 if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
     header("Location: login.php");
     exit;
 } else {
-  if ($_SESSION["tuser"]==1) {
-    header("Location: Painel.php?passo=");
-}
+    if ($_SESSION["tuser"]==1) {
+        header("Location: Painel.php?passo=");
+    }
     $NomeUser=$_SESSION["user"];
 
 }
@@ -33,21 +33,30 @@ if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
     <link rel="stylesheet" type="text/css" href="css/fonte"/>
 </head>
 <body background="css/imagens/vaga.png.jpg">
-    <div id="pagini" class="form bradius">
-        <div class="message"></div>
-        <div class="logo2"><a title="<?php echo $title;?>"><img src="css/imagens/parae.png" alt="<?php echo $title;?>" title="<?php echo $title;?>" width="200" height="78"/> </a> </div>
-        <div id="sair">Olá , <?php echo $NomeUser ?> | <a href="logout.php">Sair</a></div>
-        <input type="submit" class="sb bradius2" value="Cadastrar Usuário" onclick="location.href='FormularioCadastroUsuario.php'" />
-        <input type="submit" class="sb bradius2" value="Cadastrar Cliente" onclick="location.href='FormularioCadastroCliente.php'"/>
-        <input type="submit" class="sb bradius2" value="Cadastrar Vaga" onclick="location.href='FormularioCadastroVaga.php'"/>
-        <input type="submit" class="sb bradius2" value="Cadastrar Convênio" onclick="location.href='FormularioCadastroConvenio.php'"/>
-    </div>
-    <input type="submit" class="sb bradius3" value="Consultar Usuário" onclick="location.href='FormularioBuscaUsuario.php'"/>
-    <input type="submit" class="sb bradius4" value="Consultar Cliente" onclick="location.href='FormularioBuscaCliente.php'"/>
-    <input type="submit" class="sb bradius4" value="Consultar Vaga" onclick="location.href='ConsultaVaga.php'"/>
-    <input type="submit" class="sb bradius4" value="Consultar Convênio" onclick="location.href='ConsultaConvenio.php'"/><br>
-    <input type="submit" class="sb bradius5" value="Atendimento" value="Cadastrar Convênio" onclick="location.href='Painel.php'"/>
-    <input type="submit" class="sb bradius5" value="Relatório" onclick="location.href='FormularioRelatorio.php'"/>
-
+<div id="pagini" class="form bradius">
+    <div class="message"></div>
+    <div class="logo2"><a title="<?php echo $title;?>"><img src="css/imagens/paraefinal.png" alt="<?php echo $title;?>" title="<?php echo $title;?>" width="200" height="78"/> </a> </div>
+    <div id="sair">Olá , <?php echo $NomeUser ?> | <a href="logout.php">Sair</a></div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <center><tr class="success">
+            <button class="btn-default" onclick="location.href='FormularioCadastroUsuario.php'"><td>Cadastrar Usuário</td></button>
+            <button class="btn-default" onclick="location.href='FormularioCadastroCliente.php'"><td>Cadastrar Cliente</td></button>
+            <button class="btn-default" onclick="location.href='FormularioCadastroVaga.php'"><td>Cadastrar Vaga</td></button>
+            <button class="btn-default" onclick="location.href='FormularioCadastroConvenio.php'"><td>Cadastrar Convênio</td></button>
+        </tr></center>
+    <center><tr class="success">
+            <button class="btn-default" onclick="location.href='ConsultaUsuario.php'"><td>Consultar Usuário</td></button>
+            <button class="btn-default" onclick="location.href='ConsultaCliente.php'"><td>Consultar Cliente</td></button>
+            <button class="btn-default" onclick="location.href='ConsultaVaga.php'"><td>Consultar Vaga</td></button>
+            <button class="btn-default" onclick="location.href='ConsultaConvenio.php'"><td>Consultar Convênio</td></button>
+        </tr></center>
+    <center><tr class="success">
+            <button class="btn-default" onclick="location.href='Painel.php'"><td>Atendimento</td></button>
+            <button class="btn-default" onclick="location.href='Relatorio.php'"><td>Relatórios</td></button>
+        </tr></center>
+</div>
 </body>
-</html>
