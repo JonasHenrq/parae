@@ -37,7 +37,7 @@ $NomeUser=$_SESSION["user"];
 
     </div>
     <div class="span3">
-        <center><button class="sb bradius 2 btn-primary" onclick="location.href='IniciaAtendimento.php?ia='">Entrada Veículo</button>
+        <center><button class="sb bradius 2 btn-primary" onclick="location.href='PainelE.php?passo='">Entrada Veículo</button>
     </div><br>
     <div class="span3">
         <center><button class="sb bradius 2 btn-primary" onclick="location.href='PainelS.php?passo='">Saída Veículo</button>

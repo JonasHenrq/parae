@@ -42,6 +42,7 @@ if ($entrada==2) {
 	$veiculo = $_POST['veiculo'];
 	$consultaAtend = mysql_query("SELECT * FROM atendimento WHERE cliente = '$cliente' and status = 1 and veiculo = '$veiculo'") or die(mysql_error());
 	$row = mysql_num_rows($consultaAtend);
+	if(!$row){header("Location: erro500.php?op=2");}
 	if ($row > 0){
 		while ($linha = mysql_fetch_array($consultaAtend)) {
 			$id = $linha['id'];
