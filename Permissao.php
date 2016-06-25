@@ -18,7 +18,7 @@ if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
 	<title>ERRO 200</title>
 	<link rel="shortcut icon" href="css/imagens/parae.ico" type="image/x-icon" />
 	<center><img src="css/imagens/paraefinal.png" class="img-rounded" width="200" height="205" onclick="location.href='paginicial.php'"></center>
-	<div align="right"> Olá, <?php echo $NomeUser ?> | <a href="logout.php">Sair</a></div>
+     <div align="right"> Olá, <?php echo $NomeUser ?> | <a href="paginicial.php"><i class="icon-home"></i></a> | <a href="logout.php">Sair</a></div>
 <body>
 	<br><br><br>
 	<center><img src="css/imagens/erro.png" class="img-rounded" width="100" height="105"></center>

@@ -16,8 +16,21 @@
 
 	$setor = $_POST['setor'];
 	$vcarro= $_POST['vcarro'];
-	$sql = mysql_query("INSERT INTO vaga (setor, vcarro)
-		VALUES ('$setor', '$vcarro')") or die (mysql_error());
+	$valor = $_POST['valor'];
+	function pv($pv_var){
+	//muda ponto para virgula ou vice-versa
+	//ex. x=pv("100.00"); o resultado será 100,00
+	//ex. x=pv("100,00"); o resultado será 100.00
+		$pv_tipo=',';
+		if ($pv_tipo == '.') {
+			return str_replace('.',',',$pv_var);
+		} else {
+			return str_replace(',','.',$pv_var);
+		}
+	}
+	$valor = pv($valor);
+	$sql = mysql_query("INSERT INTO vaga (setor, vcarro, valor)
+		VALUES ('$setor', '$vcarro', '$valor')") or die (mysql_error());
 	header("Location: sucesso.php");
 	mysql_close();
 

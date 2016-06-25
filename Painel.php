@@ -1,77 +1,53 @@
+
 <?php
 $host = "localhost";
 $user = "root";
 $pass = "";
 $banco = "user";
-$conexao = mysql_connect($host, $user, $pass);
+$conexao = mysql_connect($host, $user, $pass) or die (mysql_error());
 mysql_select_db($banco) or die (mysql_error());
 ?>
 
-<?php 
+<?php
 session_start();
 if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
-	header("Location: Login.php");
-	exit;
-} else {
-	if ($_SESSION["tuser"]==1) {
-		header("Location: Painel.php");
-	}
-	$NomeUser=$_SESSION["user"];
+    header("Location: login.php");
+    exit;
 }
-?>
-
-<?php
-  $passo = $_GET['passo'];
-  if($passo){
-    $cpf = $_POST['cpf'];
-    $codigo = $_POST['codigo'];
-    $consultaID = mysql_query("SELECT id FROM cliente WHERE cpf = '$cpf' or codigo = '$codigo' and status = '1'") or die(mysql_error());
-    $IDvector = mysql_fetch_row($consultaID);
-    $id = $IDvector[0];
-    header("Location: testehora.php?id=$id");
-  }
+$NomeUser=$_SESSION["user"];
 
 ?>
 
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC ".//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1//DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<title>Atendimento</title>
-  <link rel="shortcut icon" href="css/imagens/parae.ico" type="image/x-icon" />
-	<center><img src="css/imagens/paraefinal.png" class="img-rounded" width="200" height="205" onclick="location.href='paginicial.php'"></center>
-	<div align="right"> Olá, <?php echo $NomeUser ?> | <a href="logout.php">Sair</a></div>
-	<center><h3>INICIAR ATENDIMENTO</h3></center>
-	<center><button class="btn btn-default" type="submit">Entrada Veículo</button>&nbsp &nbsp &nbsp &nbsp
-	<button class="btn btn-default" type="submit">Saída Veiculo</button></center>
-		<br><br>
-	<script language="Javascript">
-      function formatar(mascara, documento){
-        var i = documento.value.length;
-        var saida = mascara.substring(0,1);
-        var texto = mascara.substring(i)
-
-        if (texto.substring(0,1) != saida){
-          documento.value += texto.substring(0,1);
-        }
-      }
-    </script>   
-
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>PARAE - Redes de Estacionamento</title>
+    <link rel="shortcut icon" href="css/imagens/parae.ico" type="image/x-icon" />
+    <link href="css/formulario.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/fonte"/>
+    <div class="logo2"><a title="<?php echo $title;?>"><img src="css/imagens/paraefinal.png" onclick="location.href='paginicial.php'" alt="<?php echo $title;?>" title="<?php echo $title;?>" width="200" height="78"/> </a> </div>
+    <div id="sair">Olá , <?php echo $NomeUser ?> | <a href="logout.php">Sair</a></div><br>
 </head>
-<body>
+<body background="css/imagens/vaga.png.jpg">
+<center></center><div class="row-fluid">
+    <div class="span3"></div>
+    <div class="span3">
+        <center><h2><em><strong>ATENDIMENTO:</strong></em></h2>
 
-<form action="Painel.php?passo=2" method="POST">
-  <center>
-  <label>
- <h5>Iniciar pelo CPF</h5>
-    <input type="text" class="form-control input-lg" name="cpf" placeholder="123.456.789-00" OnKeyPress="formatar('###.###.###-##', this)" maxlength="14">
-  </label>
-  <label>
-  <h5>Iniciar pelo Codigo</h5>
-    <input type="text" class="form-control input-lg" name="codigo" >
-  </label>
-  <label>
-  <button class="btn btn-default" type="submit">Iniciar</button>   
-  </label>
-  <br>
-</form></center>
+    </div>
+    <div class="span3">
+        <center><button class="sb bradius 2 btn-primary" onclick="location.href='PainelE.php?passo='">Entrada Veículo</button>
+    </div><br>
+    <div class="span3">
+        <center><button class="sb bradius 2 btn-primary" onclick="location.href='PainelS.php?passo='">Saída Veículo</button>
+    </div><br>
+    <div class="span3">
+        <center><button class="sb bradius 2 btn-primary" onclick="location.href='FormularioCadastroCliente.php'">Cadastrar Cliente</button>
+    </div><br>
+    <div class="span3">
+        <center><button class="sb bradius 2 btn-primary" onclick="location.href='FormularioBuscaCliente.php'">Consultar Cliente</button>
+    </div><br>
+</div>
+</body>
+</html>

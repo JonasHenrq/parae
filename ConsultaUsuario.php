@@ -27,7 +27,7 @@ if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
 	<title>Consulta Usuário</title>
 	<link rel="shortcut icon" href="css/imagens/parae.ico" type="image/x-icon" />
 	<center><img src="css/imagens/paraefinal.png" class="img-rounded" width="200" height="205" onclick="location.href='paginicial.php'"></center>
-	<div align="right"> Olá, <?php echo $NomeUser ?> | <a href="logout.php">Sair</a></div>
+     <div align="right"> Olá, <?php echo $NomeUser ?> | <a href="paginicial.php"><i class="icon-home"></i></a> | <a href="logout.php">Sair</a></div>
 	<center><h3>Usuários Cadastrados</h3></center>
 </head>
 <body>
@@ -159,6 +159,6 @@ if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
 		}
 	}
 	?>
-	<center> <button class="btn btn-default" type="button" onclick="location.href='javascript:window.history.go(-1)'">Voltar</button></center>
+	<center> <p><button class="btn btn-default" type="button" onclick="location.href='paginicial.php'">Voltar</button>   </center>
 </body>
 </html>

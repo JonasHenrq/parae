@@ -30,7 +30,7 @@ if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
     <title>Cadastro de Vaga</title>
     <link rel="shortcut icon" href="css/imagens/parae.ico" type="image/x-icon" />
     <center><img src="css/imagens/paraefinal.png" class="img-rounded" width="200" height="205" onclick="location.href='paginicial.php'"></center>
-    <div align="right"> Olá, <?php echo $NomeUser ?> | <a href="logout.php">Sair</a></div>
+     <div align="right"> Olá, <?php echo $NomeUser ?> | <a href="paginicial.php"><i class="icon-home"></i></a> | <a href="logout.php">Sair</a></div>
     <center><h3>CADASTRO DE VAGA</h3></center>
     <br><br>
     <script language="Javascript">
@@ -61,6 +61,10 @@ if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
         <label>
             <h5>Número de vagas disponíveis:</h5>
             <input type="text" class="form-control" name="vcarro">
+        </label>
+        <label>
+            <h5>Valor Hora:</h5>
+            <input type="text" class="form-control" name="valor">
         </label>
         <label>
             <br>

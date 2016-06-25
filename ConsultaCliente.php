@@ -12,12 +12,8 @@ session_start();
 if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
   header("Location: Login.php");
   exit;
-} else {
-  if ($_SESSION["tuser"]==1) {
-    header("Location: Painel.php");
-  }
-  $NomeUser=$_SESSION["user"];
 }
+  $NomeUser=$_SESSION["user"];
 ?>
 
 <?php
@@ -29,9 +25,9 @@ function obtemVeiculos($id){
     while ($linha = mysql_fetch_array($sql)) {
      $placa = $linha['placa'];
      $modelo = $linha['modelo']; 
-     echo "'<div class=".'"row-fluid"'.">
+     echo "<div class=".'"row-fluid"'.">
      <div class=".'"span3"'."><h5>Veiculo:</h5>$modelo</div>
-            <div class=".'"span3"'."><h5>Placa:</h5>$placa</div>'
+            <div class=".'"span3"'."><h5>Placa:</h5>$placa</div>
       </div>";
     }
    }
@@ -59,14 +55,15 @@ function consulta(){
           $convenio = $linha['convenio'];
           $codigo = $linha['codigo'];
           $saldo = $linha['saldo'];
+          $saldo = 'R$' . number_format($saldo, 2, ',', '.');
           $consultaNomeConvenio = mysql_query("SELECT nome FROM convenio WHERE id = '$convenio'") or die(mysql_error());
           $nomeconv = mysql_fetch_row($consultaNomeConvenio);
           echo '
           <div class="row-fluid">
             <div class="span3"><h5>CODIGO ACESSO RAPIDO:</h5><b>'.$codigo.'</b></div>
             <div class="span3"><h5>Convênio:</h5>'.$nomeconv[0].'</div>
-            <div class="span3"><h4>Saldo em Crédito:</h4><h5>R$'.$saldo.'</h5></div><br>
-            <center><div class="span3"><button class="btn btn-success btn-lg btn-block" type="button">Crédito Cliente</button></div></center>
+            <div class="span3"><h4>Saldo em Crédito:</h4><h5>'.$saldo.'</h5></div><br>
+            <center><div class="span3"><button class="btn btn-success btn-lg btn-block" type="button" onclick="location.href='."'CreditoCliente.php?id=".$id."'".'">Credito Cliente</button></div></center>
           </div>
           <br>
           <div class="row-fluid">
@@ -111,13 +108,14 @@ function consulta(){
           $convenio = $linha['convenio'];
           $codigo = $linha['codigo'];
           $saldo = $linha['saldo'];
+          $saldo = 'R$' . number_format($saldo, 2, ',', '.');
           $consultaNomeConvenio = mysql_query("SELECT nome FROM convenio WHERE id = '$convenio'") or die(mysql_error());
           $nomeconv = mysql_fetch_row($consultaNomeConvenio);
           echo '
           <div class="row-fluid">
             <div class="span3"><h5>CODIGO ACESSO RAPIDO:</h5><b>'.$codigo.'</b></div>
             <div class="span3"><h5>Convênio:</h5>'.$nomeconv[0].'</div>
-            <div class="span3"><h4>Saldo em Crédito:</h4><h5>R$'.$saldo.'</h5></div><br>
+            <div class="span3"><h4>Saldo em Crédito:</h4><h5>'.$saldo.'</h5></div><br>
             <center><div class="span3"><button class="btn btn-success btn-lg btn-block" type="button">Crédito Cliente</button></div></center>
           </div>
           <br>
@@ -200,7 +198,7 @@ function consulta(){
 <title>Consulta Cliente</title>
 <link rel="shortcut icon" href="css/imagens/parae.ico" type="image/x-icon" />
 <center><img src="css/imagens/paraefinal.png" class="img-rounded" width="200" height="205" onclick="location.href='paginicial.php'"></center>
-<div align="right"> Olá, <?php echo $NomeUser ?> | <a href="logout.php">Sair</a></div>
+     <div align="right"> Olá, <?php echo $NomeUser ?> | <a href="paginicial.php"><i class="icon-home"></i></a> | <a href="logout.php">Sair</a></div>
 <center><h3>CONSULTA CLIENTE</h3></center>
 <br><br>
 </head>
@@ -209,7 +207,7 @@ function consulta(){
     <div class="row-fluid">
       <div class="span12">
         <?php consulta(); ?>
-        <br><br><center> <button class="btn btn-default" type="button" onclick="location.href='javascript:window.history.go(-1)'">Voltar</button></center>
+        <br><br><center><p><button class="btn btn-default" type="button" onclick="location.href='paginicial.php'">Voltar</button></center>
       </div>
     </div>
   </div>
