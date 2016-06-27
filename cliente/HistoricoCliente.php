@@ -117,7 +117,7 @@ $cliente = $Clientevector[0];
         $saldo = 'R$' . number_format($cliente, 2, ',', '.');
         echo $saldo;
 	?></h4></strong></center>
-	<center><h4><a href="FormularioInsereCredito.php?acao=&id=<?php echo"$clienteID";?>">Inserir Credito pelo Paypal</a></h4></center>
+	<center><h4><a href="FormularioInsereCredito.php?acao=&id=<?php echo"$clienteID";?>">Inserir crédito pelo Paypal</a></h4></center>
 	<br>
 	<center><table class="table table-striped"></center>
 	<thead><tr>
@@ -131,7 +131,7 @@ $cliente = $Clientevector[0];
 			<center>Convênio</center>
 		</th>
 		<th>
-			<center>Veiculo</center>
+			<center>Veículo</center>
 		</th>
 		<th>
 			<center>Hora de Entrada</center>
