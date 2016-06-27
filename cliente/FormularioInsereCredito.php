@@ -50,7 +50,7 @@ if($acao){
         </label>
         <label>
         <br>
-            <button class="btn btn-default" type="submit">INICIAR</button></p>
+            <button class="btn btn-default" type="submit">Iniciar</button></p>
         </label>
         <br>
     </form></center>

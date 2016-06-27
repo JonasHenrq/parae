@@ -11,7 +11,7 @@ mysql_select_db($banco) or die (mysql_error());
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
-	<title>ÁREA DO CLIENTE</title>
+	<title>Área do Cliente</title>
   <link rel="shortcut icon" href="../css/imagens/parae.ico" type="image/x-icon" />
 	<center><img src="../css/imagens/paraefinal.png" class="img-rounded" width="200" height="205" onclick="location.href='index.php'"></center>
 	<BR>
@@ -55,7 +55,7 @@ mysql_select_db($banco) or die (mysql_error());
     <input type="text" class="form-control input-lg" name="cpf" placeholder="123.456.789-00" OnKeyPress="formatar('###.###.###-##', this)" maxlength="14">
   </label>
   <label>
-  <h5>Informe o Codigo de Acesso Rapido</h5>
+  <h5>Informe o Código de Acesso Rápido</h5>
     <input type="text" class="form-control input-lg" name="codigo" >
   </label>
   <label>

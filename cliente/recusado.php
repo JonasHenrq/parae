@@ -17,7 +17,7 @@ $_SESSION['valor'] = NULL;
     <center><img src="../css/imagens/paraefinal.png" class="img-rounded" width="200" height="205" ></center>
     <br><br><br>
     <center><img src="../css/imagens/erro.png" class="img-rounded" width="100" height="105"></center>
-    <center><h3>PEDIDO NÃO CONFIRMADO PELO PAYPAL!</h3></center>
+    <center><h3>Pedido não confirmado pelo Paypal!</h3></center>
     <br>
     <center><button class="btn btn-default" type="button" onclick="location.href='index.php'">Voltar</button></center>
 </head>
