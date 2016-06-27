@@ -26,8 +26,8 @@ if($entrada==1){
 	$consultaIDconv = mysql_query("SELECT convenio FROM cliente WHERE id = '$cliente'") or die(mysql_error());
 	$IDvector = mysql_fetch_row($consultaIDconv);
 	$convenio = $IDvector[0];
-	$sql = mysql_query("INSERT INTO atendimento (cliente, conv, veiculo, horaE, minutoE)
-		VALUES ('$cliente', '$convenio', '$veiculo', '$horaE', '$minutoE')");
+	$sql = mysql_query("INSERT INTO atendimento (cliente, conv, setor, veiculo, horaE, minutoE)
+		VALUES ('$cliente', '$convenio','$setor', '$veiculo', '$horaE', '$minutoE')");
 	$consultaVaga = mysql_query("SELECT vcarro FROM vaga WHERE id = '$setor'") or die(mysql_error());
 	$Valorvector = mysql_fetch_row($consultaVaga);
 	$nvaga = $Valorvector[0];
@@ -49,6 +49,10 @@ if ($entrada==2) {
 			$convenio= $linha['conv'];
 			$horaE = $linha['horaE'];
 			$minutoE = $linha['minutoE'];
+			$consultaNome = mysql_query("SELECT nome,saldo FROM cliente WHERE id = '$cliente'") or die(mysql_error());
+            $Nomevector = mysql_fetch_row($consultaNome);
+            $clientexx = $Nomevector[0];
+            $credito = $Nomevector[1];
 			$consultaDesc = mysql_query("SELECT porc FROM convenio WHERE id = '$convenio'") or die(mysql_error());
 			$Descvector = mysql_fetch_row($consultaDesc);
 			$desconto = $Descvector[0];
@@ -66,9 +70,15 @@ if ($entrada==2) {
 			$nvaga = $Valorvector[0];
 			$nvaga = ($nvaga+1);
 			mysql_query("UPDATE vaga SET vcarro = '$nvaga' WHERE id ='$setor'");
-			header("Location: Pagamento.php?id=$id");
 		}
-	}
+	}$pagar = $credito - $valor;
+    if($pagar>0){
+        mysql_query("UPDATE cliente SET saldo = '$pagar' WHERE id ='$cliente'");
+        $pagar = 0;
+    }else{
+        mysql_query("UPDATE cliente SET saldo = 0 WHERE id ='$cliente'");
+        $pagar = $pagar*-1;
+    }
+    header("Location: Pagamento.php?id=$id");
 }
-
 ?>

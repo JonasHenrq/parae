@@ -46,12 +46,10 @@ if(!isset($_SESSION["user"]) || !isset($_SESSION["password"])){
     }
     $pagar = $credito - $valor;
     if($pagar>0){
-        mysql_query("UPDATE cliente SET saldo = '$pagar' WHERE id ='$clienteID'");
         $pagar = 0;
     }else{
-        mysql_query("UPDATE cliente SET saldo = 0 WHERE id ='$clienteID'");
         $pagar = $pagar*-1;
-    }
+    }       
 ?>
 
 <!DOCTYPE html>

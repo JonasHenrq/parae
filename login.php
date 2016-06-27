@@ -16,8 +16,11 @@
                 <label for="email">Usuario:</label><input id="usuario" type="text" class="txt bradius" name="usuario" value=""/>
                 <label for="senha">Senha:</label><input id="senha" type="password" class="txt bradius" name="senha" value=""/>
                 <center><input type="submit" class="sb bradius" value="Entrar"/></center>
+                <br>
+                <center><input type="button" onclick="location.href='cliente'" class="sb bradius" value="Área do cliente"/></center>
             </form>
         </div>
     </div>
+
 </body>
 </html>
